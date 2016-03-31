@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-# Screenshot Shadow for Mac OS X
+# Screenshot Shadow for Mac OS X [![Build Status](https://travis-ci.org/code-warrior/screenshot-shadow.svg?branch=master)](https://travis-ci.org/code-warrior/screenshot-shadow)
 
 v1.0.0
 
