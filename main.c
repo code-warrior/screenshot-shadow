@@ -58,7 +58,7 @@ instructions:
          break;
 
       default:
-         printf("\n\n\tEither this is the first time that you’ve run this program,\n"
+         printf("\n\n\tEither this is the first time you’ve run this program, or\n"
             "or there is a problem with the command. Resetting the default…\n\n");
 
          if (NULL == (screenshot_command = popen(
