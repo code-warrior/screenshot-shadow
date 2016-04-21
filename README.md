@@ -23,9 +23,13 @@ By default, Mac OS X creates 112-pixel box shadows around screenshots. This comm
 
         chmod 755 screenshot-shadow
 
-3. Run the program:
+3. Move the binary into your local environment:
 
-        ./screenshot-shadow
+        sudo mv screenshot-shadow /usr/local/bin
+
+4. Run the program:
+
+        screenshot-shadow
 
 ## Installation (Easy)
 
