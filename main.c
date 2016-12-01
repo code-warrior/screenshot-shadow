@@ -134,8 +134,6 @@ user_choice:
 
             exit(EXIT_SUCCESS);
 
-            break;
-
          default:
             printf("\n\t%sInvalid character.%s Try again. "
                    "(Enter 'q' or 'Q' to quit.)\n\n",
