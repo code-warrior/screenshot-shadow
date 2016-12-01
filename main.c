@@ -87,7 +87,7 @@ instructions:
           BLACK, BLACK);
 
 user_choice:
-   scanf("%s", choice);
+   (void) scanf("%s", choice);
    input_length = strlen(choice);
 
    if (input_length > 1) {
