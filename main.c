@@ -24,7 +24,7 @@ int main (void)
    } else {
       while (NULL != fgets(
                screenshot_command_response,
-               sizeof(screenshot_command_response) - 1,
+               (int) sizeof(screenshot_command_response) - 1,
                screenshot_command)
       ) {
          ;
@@ -72,7 +72,7 @@ instructions:
          } else {
             while (NULL != fgets(
                screenshot_command_response,
-               sizeof(screenshot_command_response) - 1, screenshot_command)
+               (int) sizeof(screenshot_command_response) - 1, screenshot_command)
             ) {
                ;
             }
