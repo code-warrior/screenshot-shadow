@@ -107,8 +107,8 @@ user_choice:
                   "shadowing screenshots.\n\n");
             } else {
                if (DISABLED == shadow_state) {
-                  system("defaults write com.apple.screencapture disable-shadow -bool false");
-                  system("killall SystemUIServer");
+                  (void) system("defaults write com.apple.screencapture disable-shadow -bool false");
+                  (void) system("killall SystemUIServer");
                }
             }
 
@@ -116,8 +116,8 @@ user_choice:
 
          case 'n':
             if (ENABLED == shadow_state) {
-               system("defaults write com.apple.screencapture disable-shadow -bool true");
-               system("killall SystemUIServer");
+               (void) system("defaults write com.apple.screencapture disable-shadow -bool true");
+               (void) system("killall SystemUIServer");
             } else {
                if (DISABLED == shadow_state) {
                   printf("\n\tNothing was changed, because you’ve asked to continue "
