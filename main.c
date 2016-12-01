@@ -10,7 +10,7 @@ int main (void)
    char screenshot_command_response[COMMAND_RESPONSE];
    char choice[MAX_INPUT_LENGTH];
    char first_character_in_choice;
-   int input_length;
+   size_t input_length;
    int shadow_state = ENABLED;
 
    if (NULL == (screenshot_command = popen(
