@@ -4,7 +4,7 @@
 
 #include "constants.h"
 
-int main (int argc, char **argv)
+int main (void)
 {
    FILE *screenshot_command;
    char screenshot_command_response[COMMAND_RESPONSE];
