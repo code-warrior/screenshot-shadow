@@ -19,7 +19,7 @@ int main (int argc, char **argv)
       printf("\n\t\t%sUnable to access the required screen shot command.%s\n",
          BOLDRED, BLACK);
 
-      exit(-1);
+      exit(EXIT_FAILURE);
 
    } else {
       while (NULL != fgets(
@@ -67,7 +67,7 @@ instructions:
          ) {
             printf( "Unable to access the required screen shot command.\n" );
 
-            exit(-1);
+            exit(EXIT_FAILURE);
 
          } else {
             while (NULL != fgets(
