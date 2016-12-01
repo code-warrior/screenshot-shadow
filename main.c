@@ -132,7 +132,7 @@ user_choice:
             printf("\t%sQuitting%s\n\n",
                BOLDRED, BLACK);
 
-            exit(0);
+            exit(EXIT_SUCCESS);
 
             break;
 
