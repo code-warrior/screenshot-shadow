@@ -4,13 +4,13 @@
 
 #include "constants.h"
 
-int main (int argc, char **argv)
+int main (void)
 {
    FILE *screenshot_command;
-   char screenshot_command_response[COMMAND_RESPONSE];
+   char screenshot_command_response[COMMAND_RESPONSE_LENGTH];
    char choice[MAX_INPUT_LENGTH];
    char first_character_in_choice;
-   int input_length;
+   size_t input_length;
    int shadow_state = ENABLED;
 
    if (NULL == (screenshot_command = popen(
@@ -19,19 +19,18 @@ int main (int argc, char **argv)
       printf("\n\t\t%sUnable to access the required screen shot command.%s\n",
          BOLDRED, BLACK);
 
-      exit(-1);
+      exit(EXIT_FAILURE);
 
    } else {
       while (NULL != fgets(
                screenshot_command_response,
-               sizeof(screenshot_command_response) - 1,
+               (int) sizeof(screenshot_command_response) - 1,
                screenshot_command)
       ) {
          ;
       }
    }
 
-instructions:
    switch(screenshot_command_response[0]) {
       case '0':
          shadow_state = ENABLED;
@@ -59,7 +58,7 @@ instructions:
 
       default:
          printf("\n\n\tEither this is the first time you’ve run this program, or\n"
-            "there is a problem with the command. Resetting the default…\n\n");
+            "\tthere is a problem with the command. Resetting the default…\n\n");
 
          if (NULL == (screenshot_command = popen(
                "defaults write com.apple.screencapture disable-shadow -bool false",
@@ -67,18 +66,13 @@ instructions:
          ) {
             printf( "Unable to access the required screen shot command.\n" );
 
-            exit(-1);
+            exit(EXIT_FAILURE);
 
          } else {
-            while (NULL != fgets(
-               screenshot_command_response,
-               sizeof(screenshot_command_response) - 1, screenshot_command)
-            ) {
-               ;
-            }
-         }
+            printf("\n\n\tCommand reset. Exiting…\n\n");
 
-         goto instructions;
+            exit(EXIT_SUCCESS);
+         }
    }
 
    printf("\t%sNote: Once you make a choice, a subsytem of Mac OS X called\n"
@@ -87,7 +81,7 @@ instructions:
           BLACK, BLACK);
 
 user_choice:
-   scanf("%s", choice);
+   (void) scanf("%s", choice);
    input_length = strlen(choice);
 
    if (input_length > 1) {
@@ -101,23 +95,36 @@ user_choice:
       first_character_in_choice = choice[0];
 
       switch (first_character_in_choice) {
+         case 'Y':
          case 'y':
             if (ENABLED == shadow_state) {
                printf("\n\tNothing was changed, because you’ve asked to keep "
                   "shadowing screenshots.\n\n");
             } else {
                if (DISABLED == shadow_state) {
-                  system("defaults write com.apple.screencapture disable-shadow -bool false");
-                  system("killall SystemUIServer");
+                  (void) system("defaults write com.apple.screencapture disable-shadow -bool false");
+                  (void) system("killall SystemUIServer");
+
+                  printf("\n\tShadowing around screenshots have been disabled. "
+                         "Exiting…\n\n");
+
+                  exit(EXIT_SUCCESS);
                }
             }
 
             break;
 
+         case 'N':
          case 'n':
             if (ENABLED == shadow_state) {
-               system("defaults write com.apple.screencapture disable-shadow -bool true");
-               system("killall SystemUIServer");
+               (void) system("defaults write com.apple.screencapture disable-shadow -bool true");
+               (void) system("killall SystemUIServer");
+
+               printf("\n\tShadowing around screenshots have been enabled. "
+                      "Exiting…\n\n");
+
+               exit(EXIT_SUCCESS);
+
             } else {
                if (DISABLED == shadow_state) {
                   printf("\n\tNothing was changed, because you’ve asked to continue "
@@ -132,9 +139,7 @@ user_choice:
             printf("\t%sQuitting%s\n\n",
                BOLDRED, BLACK);
 
-            exit(0);
-
-            break;
+            exit(EXIT_SUCCESS);
 
          default:
             printf("\n\t%sInvalid character.%s Try again. "

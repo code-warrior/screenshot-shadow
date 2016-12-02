@@ -1,4 +1,3 @@
-<meta charset="utf-8">
 # Screenshot Shadow for Mac OS X [![Build Status](https://travis-ci.org/code-warrior/screenshot-shadow.svg?branch=master)](https://travis-ci.org/code-warrior/screenshot-shadow)
 
 v1.0.0
@@ -25,7 +24,7 @@ By default, Mac OS X creates 112-pixel box shadows around screenshots. This comm
 
 3. Move the binary into your local environment:
 
-        sudo mv screenshot-shadow /usr/local/bin
+        sudo mv screenshot-shadow /usr/local/bin/
 
 4. Run the program:
 
