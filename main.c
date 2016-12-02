@@ -31,7 +31,6 @@ int main (void)
       }
    }
 
-instructions:
    switch(screenshot_command_response[0]) {
       case '0':
          shadow_state = ENABLED;
@@ -70,15 +69,10 @@ instructions:
             exit(EXIT_FAILURE);
 
          } else {
-            while (NULL != fgets(
-               screenshot_command_response,
-               (int) sizeof(screenshot_command_response) - 1, screenshot_command)
-            ) {
-               ;
-            }
-         }
+            printf("\n\n\tCommand reset. Exiting…\n\n");
 
-         goto instructions;
+            exit(EXIT_SUCCESS);
+         }
    }
 
    printf("\t%sNote: Once you make a choice, a subsytem of Mac OS X called\n"
