@@ -95,6 +95,7 @@ user_choice:
       first_character_in_choice = choice[0];
 
       switch (first_character_in_choice) {
+         case 'Y':
          case 'y':
             if (ENABLED == shadow_state) {
                printf("\n\tNothing was changed, because you’ve asked to keep "
@@ -108,6 +109,7 @@ user_choice:
 
             break;
 
+         case 'N':
          case 'n':
             if (ENABLED == shadow_state) {
                (void) system("defaults write com.apple.screencapture disable-shadow -bool true");
