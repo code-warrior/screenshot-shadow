@@ -104,6 +104,11 @@ user_choice:
                if (DISABLED == shadow_state) {
                   (void) system("defaults write com.apple.screencapture disable-shadow -bool false");
                   (void) system("killall SystemUIServer");
+
+                  printf("\n\tShadowing around screenshots have been disabled. "
+                         "Exiting…\n\n");
+
+                  exit(EXIT_SUCCESS);
                }
             }
 
@@ -114,6 +119,12 @@ user_choice:
             if (ENABLED == shadow_state) {
                (void) system("defaults write com.apple.screencapture disable-shadow -bool true");
                (void) system("killall SystemUIServer");
+
+               printf("\n\tShadowing around screenshots have been enabled. "
+                      "Exiting…\n\n");
+
+               exit(EXIT_SUCCESS);
+
             } else {
                if (DISABLED == shadow_state) {
                   printf("\n\tNothing was changed, because you’ve asked to continue "
