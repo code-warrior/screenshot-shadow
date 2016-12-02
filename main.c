@@ -7,7 +7,7 @@
 int main (void)
 {
    FILE *screenshot_command;
-   char screenshot_command_response[COMMAND_RESPONSE];
+   char screenshot_command_response[COMMAND_RESPONSE_LENGTH];
    char choice[MAX_INPUT_LENGTH];
    char first_character_in_choice;
    size_t input_length;
