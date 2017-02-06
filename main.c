@@ -105,7 +105,7 @@ user_choice:
                   (void) system("defaults write com.apple.screencapture disable-shadow -bool false");
                   (void) system("killall SystemUIServer");
 
-                  printf("\n\tShadowing around screenshots have been disabled. "
+                  printf("\n\tShadowing around screenshots has been enabled. "
                          "Exiting…\n\n");
 
                   exit(EXIT_SUCCESS);
@@ -120,7 +120,7 @@ user_choice:
                (void) system("defaults write com.apple.screencapture disable-shadow -bool true");
                (void) system("killall SystemUIServer");
 
-               printf("\n\tShadowing around screenshots have been enabled. "
+               printf("\n\tShadowing around screenshots has been disabled. "
                       "Exiting…\n\n");
 
                exit(EXIT_SUCCESS);
