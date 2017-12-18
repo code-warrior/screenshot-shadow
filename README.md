@@ -52,4 +52,6 @@ Simply run `make` from this project’s root folder. Alternatively, you can comp
 
 ## Verified On...
 
+* Mac OS X 10.13
+* Mac OS X 10.12
 * Mac OS X 10.11
