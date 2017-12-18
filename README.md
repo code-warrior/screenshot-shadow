@@ -1,6 +1,6 @@
 # Screenshot Shadow for Mac OS X [![Build Status](https://travis-ci.org/code-warrior/screenshot-shadow.svg?branch=master)](https://travis-ci.org/code-warrior/screenshot-shadow)
 
-v1.0.2
+v1.0.3
 
 By default, Mac OS X creates 112-pixel box shadows around screenshots. This command line tool allows users to enable/disable the creation of those box shadows when taking screenshots.
 
@@ -52,4 +52,6 @@ Simply run `make` from this project’s root folder. Alternatively, you can comp
 
 ## Verified On...
 
+* Mac OS X 10.13
+* Mac OS X 10.12
 * Mac OS X 10.11
