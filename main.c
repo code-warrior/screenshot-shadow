@@ -59,7 +59,7 @@ int main (void)
       default:
          printf("\n\n\tEither this is the first time you’ve run this program, or\n"
             "\tthere is a problem with the command. Attempting to reset the\n"
-            "screenshot shadow’s default value…\n\n");
+            "\tscreenshot shadow’s default value…\n\n");
 
          if (NULL == (screenshot_command = popen(
                "defaults write com.apple.screencapture disable-shadow -bool false",
